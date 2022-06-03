@@ -121,6 +121,26 @@ public class LinkedList<T> implements Iterable<T> {
         }
     }
 
+    public void reverse(){
+        if (isEmpty()){
+            return;
+        }
+        reverse(head.next);
+    }
+
+    public Node reverse(Node cur){
+        // 递归的出口
+        if (cur.next == null){
+            head.next = cur;
+            return cur;
+        }
+
+        Node prev = reverse(cur.next);
+        prev.next = cur;
+        cur.next = null;
+        return cur;
+    }
+
 
 
 }

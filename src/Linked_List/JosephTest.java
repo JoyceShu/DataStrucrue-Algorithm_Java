@@ -30,20 +30,21 @@ public class JosephTest {
         //3. loop the circular linked list, delete node
         Node <Integer> n = first;
         Node<Integer> dummy = null;
-
+        //当首尾没有相连的时候就继续，因为这里我们要找的是最后的2个人
+        //找到首位-》退出循环
         while(n != n.next){
             //mock num++
             count++;
             // if 3 -> delete the cur node, print cur node, reset node
-            if (count == 3){
-                dummy.next = n.next;
+            if (count == 3){ //找到了此刻需要删除的node
+                dummy.next = n.next;//delete
                 System.out.print(n.item + ",");
-                count = 0;
-                n =n.next;
+                count = 0;//重置count为0
+
             }else {
                 dummy = n;
-                n = n.next;
             }
+            n = n.next;
         }
         System.out.print(n.item);
 

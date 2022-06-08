@@ -1,5 +1,7 @@
 package Tree;
 
+import java.util.Queue;
+
 public class BinaryTree <Key extends Comparable<Key>, Value>{
 
     private int N;//记录树中元素的个数
@@ -24,6 +26,33 @@ public class BinaryTree <Key extends Comparable<Key>, Value>{
     //向树中添加元素的个数 key-value
     public void put(Key key, Value value){
         root = put(root, key, value);
+    }
+
+
+    //在整个数中找出最小节点
+    public Key min(){
+        return min(root).key;
+    }
+
+    //找出最小key所在的节点
+    private Node min(Node n){
+        //判断x还有没有左子节点，如果有就就继续找，如果没有就继续往左找
+        if(n.left != null){
+            return min(n.left);
+        }else{
+            return n;
+        }
+    }
+
+    public Key max(){
+        return max(root).key;
+    }
+    public Node max(Node x){
+        if(x.right != null){
+            return max(x.right);
+        }else{
+            return x;
+        }
     }
 
 
@@ -75,6 +104,7 @@ public class BinaryTree <Key extends Comparable<Key>, Value>{
     public void delete(Key key){
         delete(root, key);
     }
+
     public  Node delete(Node x,Key key){
         if(x == null){
             return null;
@@ -114,7 +144,6 @@ public class BinaryTree <Key extends Comparable<Key>, Value>{
                 N--;
             }
             return x;
-
 
         }
 

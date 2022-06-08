@@ -14,7 +14,6 @@ public class BinaryTreeTest {
         System.out.println(bt.get(1));
         System.out.println(bt.size());
         bt.delete(1);
-
     }
 
 

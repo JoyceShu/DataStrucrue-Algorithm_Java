@@ -15,6 +15,7 @@ public class QuickSort {
         sort(a, low, high);
 
     }
+
     private static void sort(Comparable[]a, int low, int high){
         if(high <= low){
             return;
